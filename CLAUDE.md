@@ -6,16 +6,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Arcade Vault is an online gaming platform where users play and compete for the highest scores. Development follows **Spec Driven Design** using `/spec` and `/spec-impl` slash commands from the `Klerith/fernando-skills` skill set.
 
-## Commands
-
-```bash
-npm run dev      # start dev server (Turbopack)
-npm run build    # production build
-npm run lint     # ESLint
-```
-
-No test runner is configured yet.
-
 ## Stack
 
 - **Next.js 16.4.0** — see `node_modules/next/dist/docs/` for docs on this version (APIs differ from Next.js 15)
@@ -23,6 +13,10 @@ No test runner is configured yet.
 - **Tailwind CSS v4** — uses `@import "tailwindcss"` and `@theme inline {}` blocks; no `tailwind.config.*` file
 - **TypeScript 5**
 - **Turbopack** as the default bundler in dev
+
+## Skills
+
+Use always /frontend-design for design UI interfaces
 
 ## Next.js 16 — Key Differences from Prior Versions
 
@@ -32,13 +26,13 @@ No test runner is configured yet.
 
 ```tsx
 // app/games/[id]/page.tsx
-export default async function Page(props: PageProps<'/games/[id]'>) {
-  const { id } = await props.params
+export default async function Page(props: PageProps<"/games/[id]">) {
+  const { id } = await props.params;
 }
 
 // app/games/layout.tsx
-export default function Layout({ children }: LayoutProps<'/games'>) {
-  return <section>{children}</section>
+export default function Layout({ children }: LayoutProps<"/games">) {
+  return <section>{children}</section>;
 }
 ```
 
